@@ -13,6 +13,8 @@ class CodeWarrior():
     """
 
     # don't forget to define your class attributes!
+    base_health = 100
+    inventory_size = 5
 
     def __init__(self, character_name: str):
         """The init method, which creates instances of this class. 
@@ -27,9 +29,15 @@ class CodeWarrior():
         
         Returns: an __init__ function should not include a Return statement!
         """
-        pass
+        self.character_name = 'Oliver'
+        self.inventory_list = []
+        self.current_health = CodeWarrior.base_health
 
     def pick_up_item(self, item_name: str):
+        if len(self.inventory_list) <CodeWarrior.inventory_size:
+            self.inventory_list.append(item_name)
+        else:
+            print("Inventory full cannot pick up more items")
         """Appends an item to the player's inventory. Max number of inventory 
         items is the class's inventory_size amount.
         
@@ -39,7 +47,7 @@ class CodeWarrior():
 
         Returns: no return necessary
         """
-        pass
+        
 
     def update_health(self, health_change: int):
         """Modifies the player's health. Minimum value is 0, maximum value is 
@@ -50,5 +58,10 @@ class CodeWarrior():
 
         Returns: no return necessary
         """
-        pass
+        self.current_health += health_change
+
+        if self.current_health < 0:
+            self.current_health = 0 
+        if self.current_health > CodeWarrior.base_health:
+            self.current_health = CodeWarrior.base_health
 
