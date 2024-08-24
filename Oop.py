@@ -17,3 +17,10 @@ dog = Dog('jett', 'pug', '5', 'black')
 print(dog.name, dog.breed, dog.age, dog.colour)
 dog2 = Dog('bub', 'poodle', '3', 'blond')
 print(dog2.name, dog2.breed, dog2.age, dog2.colour)
+
+def eat(self):
+    print("nom nom nom")
+    new_weight = self.weight + 0.5
+
+name = "asli"
+name.eat()
